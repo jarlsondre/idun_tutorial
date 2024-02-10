@@ -36,6 +36,71 @@ This will give you access to a login node, but be careful not to run your
 jobs on these nodes. If you have a job that you want to run, make sure to run it
 on a compute node. We will get back to how to do this.
 
+## Adding SSH keys to avoid using password
+
+Since typing your password every time can be annoying, I would strongly advise
+that you add an SSH key. The first thing you do is to generate an SSH key by
+typing ssh-keygen. An example of this is:
+
+```
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/<your username>/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/<your username>/.ssh/id_rsa
+Your public key has been saved in /Users/<your username>/.ssh/id_rsa.pub
+The key fingerprint is:
+```
+
+followed by your fingerprint. Notice that you can give it any name you want,
+so it might be useful to name something that makes you remember which key it is,
+e.g. "NTNU".
+
+Now you have to add the key to the NTNU server. This can be done by typing the
+following command
+
+```
+ssh-copy-id -i <path_to_your_key.pub> <username>@idun.hpc.ntnu.no
+```
+
+If your file is in the `.ssh`directory and it is named `ntnu`, then you do it
+with the following command:
+
+```
+ssh-copy-id -i ~/.ssh/ntnu.pub <username>@idun.hpc.ntnu.no
+```
+
+Now you just have to add your key to your `ssh-agent` and you will be able to
+log into the NTNU servers without using your NTNU password. This will be very
+helpful if you are using VSCODE as explained in some of the later steps.
+
+### Adding the SSH key to your keychain (MacOS)
+
+If you want the password you set for your key to be automatically added through
+your keychain, then you can create a file at `~/.ssh/config` or edit your
+existing one, and then add the following:
+
+```
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+```
+
+Once you have this in your config file, you must add your newly made key with
+the command
+
+```
+ssh-add -K <path_to_private key>
+```
+
+If the file you entered earlier was `.ssh/ntnu`, then this will have created two
+files, `.ssh/ntnu`and `.ssh/ntnu.pub`. In this case, you want to type
+
+```
+ssh-add -K .ssh/ntnu
+```
+
 ## Unix Shell Basics
 
 Since IDUN is running on Linux, you will have to know a couple of unix commands
@@ -480,14 +545,15 @@ one of them, you will get the following if you have done everything correctly:
 
 Now, choose "compute-node". You will be prompted to enter your password quite
 a lot of times, possibly as many as eight times, so it can be handy to have
-your password in the clipboard or in a password manager. After typing your
+your password in the clipboard or in a password manager, or just using SSH keys
+like explained at the top of this tutorial. After typing your
 password a couple of times, you will get this screen:
 
 ![Select folder](images/vscode-select-folder.png)
 
 At this point, choose which folder you want to work in by clicking "open folder"
 on the left side. After clicking "OK", you will have to type your password a
-couple of more times.
+couple of more times, unless you are using SSH keys.
 
 Now you should be connected and ready to work! Any code you run in your window
 will now be ran on IDUN's CPUs or GPUs, depending on your selection in step 1.
