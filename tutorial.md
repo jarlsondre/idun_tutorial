@@ -343,6 +343,75 @@ pip install package_name --user
 pip install package_name==X.X --user
 ```
 
+## Creating a Conda environment and using it in a VSCode jupyter notebook
+
+It is common to use virtual environments when using IDUN, and my personal
+favorite is Conda. If you want to use a specific kernel with a specific python
+version in a jupyter notebook in VSCode, then creating a conda environment and
+loading it in VSCode is a great way of doing this.
+
+### Step 1: Create a conda environment
+
+First, you have to load the conda module in the IDUN module system. You can see
+how to do this in the previous section. Once you have done this, you want to
+create a conda environment. This can be done as follows:
+
+```
+conda create -n <name of environment> python=<wanted python version>
+```
+
+So, if you wanted to call your environment "master_thesis" and you wanted to use
+Python 3.11, then you would type:
+
+```
+conda create -n master_thesis python=3.11
+```
+
+### Step 2: Install and activate ipykernel
+
+Once you have created a conda environment, you need to activate the environment
+by typing `conda activate <name of environment>`. Then you need to install and
+activate ipykernel. To install, run the following command:
+
+```
+conda install -c conda-forge ipykernel
+```
+
+Then, to activate ipykernel, run:
+
+```
+python -m ipykernel install --user --name=<name of environment>
+```
+
+### Step 3: Find your conda kernel
+
+Now you have to select the kernel you just created. This can be done by clicking
+"Select Kernel" once you have opened a notebook in VSCode. With some luck, you'll
+see your conda environment listed as an available kernel. If it does not show up,
+however, then you must add the interpreter path manually.
+
+First, you have to find the path of your python interpreter. Make sure that you
+have activated your conda environment by typing `conda activate <name of 
+environment>`. Then, type `which python`. This will give you the path of your
+python install. The path should look something like this:
+
+```
+~/.conda/envs/<name of environment>/bin/python
+```
+
+Once you have the path, you can open the VSCode command palette. This is done
+by clicking `cmd + shift + p` on MacOS. Then, find the option called `Python: 
+Select Interpreter` by searching. Once you have chosen it, click
+`Enter interpreter path` and paste the path you found in the terminal. Now
+you should be able to find your conda environment when clicking `Select Kernel`
+in a VSCode notebook!
+
+### Step 4: Conda Init (Optional)
+
+If you want to make sure that conda always starts when you start a new terminal,
+you can type `conda init` in your terminal on IDUN. This will add some instructions
+to your `.bashrc` that make sure your terminal always has conda activated.
+
 ## Running jobs
 
 When you want to run your large project on the cluster you must submit it to
