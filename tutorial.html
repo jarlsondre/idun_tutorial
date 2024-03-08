@@ -376,6 +376,54 @@ Getting access to IDUN means that you have access to a cluster of powerful
 computers which provide both storage and computational resources in the form of
 computer cores and GPUs. Each computer is known as a node, and each node has
 several cores.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#idun-tutorial-from-the-perspective-of-a-masters-student">Introduction</a></li>
+<li><a href="#accessing-idun-through-the-command-line">Accessing IDUN through the command line</a></li>
+<li><a href="#adding-ssh-keys-to-avoid-using-password">Adding SSH keys to avoid using password</a>
+<ul>
+<li><a href="#adding-the-ssh-key-to-your-keychain-macos">Adding the SSH key to your keychain (MacOS)</a></li>
+</ul>
+</li>
+<li><a href="#unix-shell-basics">Unix Shell Basics</a>
+<ul>
+<li><a href="#print-working-directory">Print Working Directory</a></li>
+<li><a href="#list-directoriesfiles">List directories/files</a></li>
+<li><a href="#change-directory">Change directory</a></li>
+<li><a href="#show-the-content-of-a-file">Show the content of a file</a></li>
+<li><a href="#edit-a-file-in-the-terminal">Edit a file in the terminal</a></li>
+<li><a href="#adding-permissions-to-execute-a-file">Adding permissions to execute a file</a></li>
+<li><a href="#clear-the-terminal">Clear the terminal</a></li>
+<li><a href="#searching-through-a-file">Searching through a file</a></li>
+<li><a href="#chaining-shell-commands-with-redirects-and-pipes">Chaining shell commands with redirects and pipes</a></li>
+</ul>
+</li>
+<li><a href="#loading-python-versions-and-other-modules">Loading python versions and other modules</a></li>
+<li><a href="#creating-a-conda-environment-and-using-it-in-a-vscode-jupyter-notebook">Creating a Conda environment and using it in a VSCode jupyter notebook</a>
+<ul>
+<li><a href="#step-1-create-a-conda-environment">Step 1: Create a conda environment</a></li>
+<li><a href="#step-2-install-and-activate-ipykernel">Step 2: Install and activate ipykernel</a></li>
+<li><a href="#step-3-find-your-conda-kernel">Step 3: Find your conda kernel</a></li>
+<li><a href="#step-4-conda-init-optional">Step 4: Conda Init (Optional)</a></li>
+</ul>
+</li>
+<li><a href="#running-jobs">Running jobs</a>
+<ul>
+<li><a href="#running-your-slurm-script">Running your SLURM script</a></li>
+<li><a href="#checking-the-slurm-queue">Checking the SLURM queue</a></li>
+<li><a href="#canceling-your-slurm-job">Canceling your SLURM job</a></li>
+</ul>
+</li>
+<li><a href="#setting-up-gpus-to-use-with-pytorch">Setting up GPUs to use with PyTorch</a></li>
+<li><a href="#connect-local-visual-studio-code-to-idun">Connect local Visual Studio Code to IDUN</a>
+<ul>
+<li><a href="#step-1-ask-for-resources">Step 1: Ask for resources</a></li>
+<li><a href="#step-2-setup-ssh-proxy">Step 2: Setup ssh proxy</a></li>
+<li><a href="#step-3-connect-with-vscode">Step 3: Connect with VSCode</a></li>
+</ul>
+</li>
+<li><a href="#jupyter-notebook">Jupyter Notebook</a></li>
+</ol>
 <h2 id="accessing-idun-through-the-command-line">Accessing IDUN through the command line</h2>
 <p>You can access IDUN through Secure Shell (SHH), which provides a secure
 connection to the cluster. To get access, you either have to be on the NTNU

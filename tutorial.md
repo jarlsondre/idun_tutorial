@@ -12,6 +12,39 @@ computers which provide both storage and computational resources in the form of
 computer cores and GPUs. Each computer is known as a node, and each node has
 several cores.
 
+## Table of Contents
+
+1. [Introduction](#idun-tutorial-from-the-perspective-of-a-masters-student)
+2. [Accessing IDUN through the command line](#accessing-idun-through-the-command-line)
+3. [Adding SSH keys to avoid using password](#adding-ssh-keys-to-avoid-using-password)
+   - [Adding the SSH key to your keychain (MacOS)](#adding-the-ssh-key-to-your-keychain-macos)
+4. [Unix Shell Basics](#unix-shell-basics)
+   - [Print Working Directory](#print-working-directory)
+   - [List directories/files](#list-directoriesfiles)
+   - [Change directory](#change-directory)
+   - [Show the content of a file](#show-the-content-of-a-file)
+   - [Edit a file in the terminal](#edit-a-file-in-the-terminal)
+   - [Adding permissions to execute a file](#adding-permissions-to-execute-a-file)
+   - [Clear the terminal](#clear-the-terminal)
+   - [Searching through a file](#searching-through-a-file)
+   - [Chaining shell commands with redirects and pipes](#chaining-shell-commands-with-redirects-and-pipes)
+5. [Loading python versions and other modules](#loading-python-versions-and-other-modules)
+6. [Creating a Conda environment and using it in a VSCode jupyter notebook](#creating-a-conda-environment-and-using-it-in-a-vscode-jupyter-notebook)
+   - [Step 1: Create a conda environment](#step-1-create-a-conda-environment)
+   - [Step 2: Install and activate ipykernel](#step-2-install-and-activate-ipykernel)
+   - [Step 3: Find your conda kernel](#step-3-find-your-conda-kernel)
+   - [Step 4: Conda Init (Optional)](#step-4-conda-init-optional)
+7. [Running jobs](#running-jobs)
+   - [Running your SLURM script](#running-your-slurm-script)
+   - [Checking the SLURM queue](#checking-the-slurm-queue)
+   - [Canceling your SLURM job](#canceling-your-slurm-job)
+8. [Setting up GPUs to use with PyTorch](#setting-up-gpus-to-use-with-pytorch)
+9. [Connect local Visual Studio Code to IDUN](#connect-local-visual-studio-code-to-idun)
+   - [Step 1: Ask for resources](#step-1-ask-for-resources)
+   - [Step 2: Setup ssh proxy](#step-2-setup-ssh-proxy)
+   - [Step 3: Connect with VSCode](#step-3-connect-with-vscode)
+10. [Jupyter Notebook](#jupyter-notebook)
+
 ## Accessing IDUN through the command line
 
 You can access IDUN through Secure Shell (SHH), which provides a secure
