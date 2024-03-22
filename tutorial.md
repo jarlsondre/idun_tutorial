@@ -1,4 +1,6 @@
-# IDUN tutorial from the perspective of a master's student
+# IDUN tutorial from the perspective of a master's student (2024 edition)
+
+**Author: Jarl Sondre Sæther**
 
 This document will contain information about useful techniques in IDUN. This
 document was initially created by Aurora Grefsrud, who delivered her master's
@@ -458,11 +460,12 @@ with some extra information for SLURM. An example of a functioning
 
 ```
 #!/bin/sh
-#SBATCH --account=<account>       # E.g. "ie-idi" if you belong to IE
+#SBATCH --account=<account>       # E.g. "ie-idi" if you belong to IDI
 #SBATCH --job-name=example_job
 #SBATCH --time=0-00:15:00         # format: D-HH:MM:SS
 
 #SBATCH --partition=GPUQ          # Asking for a GPU
+#SBATCH --gres=gpu:1             # Setting the number of GPUs to 1
 #SBATCH --mem=16G                 # Asking for 16GB RAM
 #SBATCH --nodes=1
 #SBATCH --output=output.txt      # Specifying 'stdout'

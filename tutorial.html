@@ -365,7 +365,8 @@ code {
           : 'default'
     });
   </script>
-<h1 id="idun-tutorial-from-the-perspective-of-a-masters-student">IDUN tutorial from the perspective of a master's student</h1>
+<h1 id="idun-tutorial-from-the-perspective-of-a-masters-student-2024-edition">IDUN tutorial from the perspective of a master's student (2024 edition)</h1>
+<p><strong>Author: Jarl Sondre Sæther</strong></p>
 <p>This document will contain information about useful techniques in IDUN. This
 document was initially created by Aurora Grefsrud, who delivered her master's
 thesis in the spring of 2021. In the spring of 2024, Jarl Sondre Sæther, who was
@@ -706,11 +707,12 @@ documentation can be found at the Sigma2 webpage.</p>
 <p>The first step is to create a SLURM job script. It is essentially a bash script
 with some extra information for SLURM. An example of a functioning</p>
 <pre class="hljs"><code><div>#!/bin/sh
-#SBATCH --account=&lt;account&gt;       # E.g. &quot;ie-idi&quot; if you belong to IE
+#SBATCH --account=&lt;account&gt;       # E.g. &quot;ie-idi&quot; if you belong to IDI
 #SBATCH --job-name=example_job
 #SBATCH --time=0-00:15:00         # format: D-HH:MM:SS
 
 #SBATCH --partition=GPUQ          # Asking for a GPU
+#SBATCH --gres=gpu:1             # Setting the number of GPUs to 1
 #SBATCH --mem=16G                 # Asking for 16GB RAM
 #SBATCH --nodes=1
 #SBATCH --output=output.txt      # Specifying 'stdout'
